@@ -19,95 +19,75 @@
         ],
         "persona": "HR professional",
         "job_to_be_done": "Create and manage fillable forms for onboarding and compliance.",
-        "processing_timestamp": "2025-07-27T16:04:34.149401"
+        "processing_timestamp": "2025-07-27T17:05:42.352457"
     },
     "extracted_sections": [
         {
-            "document": "Learn Acrobat - Fill and Sign.pdf",
-            "section_title": "Types of PDF forms",
+            "document": "Learn Acrobat - Request e-signatures_1.pdf",
+            "section_title": "Allows resizing of fields by clicking the bottom right corner of the field (blue",
             "importance_rank": 1,
+            "page_number": 14
+        },
+        {
+            "document": "Learn Acrobat - Share_2.pdf",
+            "section_title": "Using the Select tool, select an edge of the text box and then drag a corner to ",
+            "importance_rank": 3,
+            "page_number": 13
+        },
+        {
+            "document": "Learn Acrobat - Edit_1.pdf",
+            "section_title": "To resize the image, select the image, hold the resize corner handles, and then ",
+            "importance_rank": 4,
+            "page_number": 14
+        },
+        {
+            "document": "Learn Acrobat - Fill and Sign.pdf",
+            "section_title": "Interactive forms: These contain fields that you can select and fill in",
+            "importance_rank": 5,
             "page_number": 2
         },
         {
-            "document": "Learn Acrobat - Request e-signatures_1.pdf",
-            "section_title": "Set privileges and permissions for others",
-            "importance_rank": 3,
-            "page_number": 21
-        },
-        {
             "document": "Learn Acrobat - Create and Convert_1.pdf",
-            "section_title": "Creates the PDF so that it conforms to the selected ISO standard for long-term preservation of",
-            "importance_rank": 6,
-            "page_number": 21
-        },
-        {
-            "document": "Learn Acrobat - Request e-signatures_2.pdf",
-            "section_title": "Acrobat and Acrobat Reader support XML data signatures that are used to sign data in XML",
-            "importance_rank": 7,
-            "page_number": 10
-        },
-        {
-            "document": "Learn Acrobat - Generative AI_2.pdf",
-            "section_title": "License deployment",
+            "section_title": "PDF/A Compliance",
             "importance_rank": 8,
-            "page_number": 18
+            "page_number": 21
         }
     ],
     "subsection_analysis": [
         {
-            "document": "Learn Acrobat - Fill and Sign.pdf",
-            "page_number": 2,
-            "refined_text": "You can complete the forms by entering information and adding your signatures"
-        },
-        {
-            "document": "Learn Acrobat - Fill and Sign.pdf",
-            "page_number": 2,
-            "refined_text": "• Interactive forms: These contain fields that you can select and fill in"
-        },
-        {
-            "document": "Learn Acrobat - Fill and Sign.pdf",
-            "page_number": 2,
-            "refined_text": "• Flat forms: These do not have interactive fields"
+            "document": "Learn Acrobat - Request e-signatures_1.pdf",
+            "page_number": 14,
+            "refined_text": "Advanced Authoring can be enabled by selecting the toggle in the upper right corner."
         },
         {
             "document": "Learn Acrobat - Request e-signatures_1.pdf",
-            "page_number": 21,
-            "refined_text": "• Certify a document while leaving portions of it available for form filling, signatures, or comments •"
+            "page_number": 14,
+            "refined_text": "Allows resizing of fields by clicking the bottom right corner of the field (blue triangle) and dragging the field to size"
+        },
+        {
+            "document": "Learn Acrobat - Share_2.pdf",
+            "page_number": 13,
+            "refined_text": "Right-click the text box to open the Text Box Properties and change the border and fill options."
+        },
+        {
+            "document": "Learn Acrobat - Share_2.pdf",
+            "page_number": 13,
+            "refined_text": "Using the Select tool, select an edge of the text box and then drag a corner to resize it"
+        },
+        {
+            "document": "Learn Acrobat - Edit_1.pdf",
+            "page_number": 14,
+            "refined_text": "To resize the image, select the image, hold the resize corner handles, and then drag the handles in or out to reduce or enlarge the image size."
+        },
+        {
+            "document": "Learn Acrobat - Fill and Sign.pdf",
+            "page_number": 2,
+            "refined_text": "Interactive forms: These contain fields that you can select and fill in."
         },
         {
             "document": "Learn Acrobat - Create and Convert_1.pdf",
             "page_number": 21,
-            "refined_text": "electronic documents."
-        },
-        {
-            "document": "Learn Acrobat - Request e-signatures_2.pdf",
-            "page_number": 10,
-            "refined_text": "Forms Architectures (XFA) forms"
-        },
-        {
-            "document": "Learn Acrobat - Request e-signatures_2.pdf",
-            "page_number": 10,
-            "refined_text": "The form author provides XML signing, validating, or clearing instructions for form events, such as button click, file save, or submit"
-        },
-        {
-            "document": "Learn Acrobat - Request e-signatures_2.pdf",
-            "page_number": 10,
-            "refined_text": "Like PDF digital signatures, XML digital signatures ensure integrity, authentication, and non-repudiation in documents"
-        },
-        {
-            "document": "Learn Acrobat - Generative AI_2.pdf",
-            "page_number": 18,
-            "refined_text": "You can manage the deployment of Acrobat AI Assistant through the Adobe Admin Console"
-        },
-        {
-            "document": "Learn Acrobat - Generative AI_2.pdf",
-            "page_number": 18,
-            "refined_text": "You can choose to either select the users to assign or create product profiles and assign users to the profiles"
-        },
-        {
-            "document": "Learn Acrobat - Generative AI_2.pdf",
-            "page_number": 18,
-            "refined_text": "As an admin, you must add users to the Admin Console using one of the methods described in Adobe Admin Console users"
+            "refined_text": "Creates the PDF so that it conforms to the selected ISO standard for long-term preservation of electronic documents."
         }
     ]
 }
