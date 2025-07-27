@@ -1,40 +1,59 @@
 import os
-import re
 import fitz
+import re
+
+def is_heading(text, font_size, font_flags):
+    if len(text.strip()) < 3:
+        return False
+    if font_size >= 12 and (font_flags & 2):
+        return True
+    if font_size >= 14:
+        return True
+    if re.match(r'^[A-Z][A-Za-z0-9\s:,&\-]{3,}$', text) and len(text.split()) <= 10:
+        return True
+    return False
 
 def extract_sections(pdf_file):
     sections = []
     doc = fitz.open(pdf_file)
+    current_section = None
 
     for page_num, page in enumerate(doc, start=1):
-        text = page.get_text()
-        current_section = None
+        blocks = page.get_text("dict")["blocks"]
 
-        for block in text.split("\n"):
-            block = block.strip()
-            if not block:
+        for b in blocks:
+            if "lines" not in b:
                 continue
+            for line in b["lines"]:
+                line_text = ""
+                max_font_size = 0
+                font_flags = 0
 
-            if (
-                not block.startswith("•") and
-                (re.match(r"^[A-Z][A-Za-z0-9\s\-\&]{3,}$", block) or (3 <= len(block.split()) <= 8))
-            ):
-                current_section = {
-                    "document": os.path.basename(pdf_file),
-                    "page_number": page_num,
-                    "section_title": block,
-                    "content": ""
-                }
-                sections.append(current_section)
-            elif current_section:
-                current_section["content"] += " " + block
+                for span in line["spans"]:
+                    line_text += span["text"].strip() + " "
+                    if span["size"] > max_font_size:
+                        max_font_size = span["size"]
+                        font_flags = span["flags"]
+
+                line_text = line_text.strip()
+                if not line_text or line_text.startswith("•"):
+                    continue
+
+                if is_heading(line_text, max_font_size, font_flags):
+                    current_section = {
+                        "document": os.path.basename(pdf_file),
+                        "page_number": page_num,
+                        "section_title": line_text,
+                        "content": ""
+                    }
+                    sections.append(current_section)
+                elif current_section:
+                    current_section["content"] += " " + line_text
 
     for s in sections:
-        if s["section_title"].strip() == "•" or len(s["section_title"].strip()) <= 2:
-            first_sentence = s["content"].strip().split(".")[0]
-            if first_sentence:
-                s["section_title"] = first_sentence[:80]  
-            else:
-                s["section_title"] = "Untitled Section"
+        title = s["section_title"].strip()
+        if len(title) <= 2 or title == "•":
+            fallback = s["content"].strip().split(".")[0]
+            s["section_title"] = fallback[:80] if fallback else "Untitled Section"
 
     return sections

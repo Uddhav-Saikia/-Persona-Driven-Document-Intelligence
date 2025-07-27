@@ -13,75 +13,100 @@
         ],
         "persona": "Food Contractor",
         "job_to_be_done": "Prepare a vegetarian buffet-style dinner menu for a corporate gathering, including gluten-free items.",
-        "processing_timestamp": "2025-07-27T16:54:55.671808"
+        "processing_timestamp": "2025-07-27T17:52:24.744562"
     },
     "extracted_sections": [
         {
-            "document": "Dinner Ideas - Sides_2.pdf",
-            "section_title": "o Oil for frying",
-            "importance_rank": 1,
-            "page_number": 5
-        },
-        {
-            "document": "Dinner Ideas - Mains_1.pdf",
-            "section_title": "Preheat oven to 350°F (175°C).",
-            "importance_rank": 2,
-            "page_number": 14
-        },
-        {
             "document": "Dinner Ideas - Sides_1.pdf",
-            "section_title": "o Marinated vegetables (artichokes, peppers)",
-            "importance_rank": 3,
+            "section_title": "Instructions :",
+            "importance_rank": 1,
             "page_number": 3
         },
         {
-            "document": "Dinner Ideas - Mains_2.pdf",
-            "section_title": "Tortillas for serving",
+            "document": "Dinner Ideas - Mains_1.pdf",
+            "section_title": "Instructions:",
+            "importance_rank": 4,
+            "page_number": 5
+        },
+        {
+            "document": "Dinner Ideas - Sides_2.pdf",
+            "section_title": "Instructions :",
             "importance_rank": 5,
+            "page_number": 14
+        },
+        {
+            "document": "Dinner Ideas - Mains_3.pdf",
+            "section_title": "Ingredients:",
+            "importance_rank": 8,
             "page_number": 8
         },
         {
             "document": "Dinner Ideas - Sides_3.pdf",
-            "section_title": "o Oil for frying",
-            "importance_rank": 7,
-            "page_number": 5
+            "section_title": "Instructions :",
+            "importance_rank": 10,
+            "page_number": 4
         }
     ],
     "subsection_analysis": [
         {
-            "document": "Dinner Ideas - Sides_2.pdf",
-            "page_number": 5,
-            "refined_text": " Instructions: o Mix ground pork, cabbage, green onions, minced garlic, soy sauce, and sesame"
-        },
-        {
-            "document": "Dinner Ideas - Mains_1.pdf",
-            "page_number": 14,
-            "refined_text": " In a large bowl, mix ground beef, ground pork, diced onion, minced garlic, breadcrumbs, milk, beaten egg, ketchup, Worcestershire sauce, salt, and pepper"
-        },
-        {
-            "document": "Dinner Ideas - Mains_1.pdf",
-            "page_number": 14,
-            "refined_text": " Shape the mixture into a loaf and place in a baking dish"
+            "document": "Dinner Ideas - Sides_1.pdf",
+            "page_number": 3,
+            "refined_text": "o  Arrange meats, cheeses, olives, and vegetables on a platter"
         },
         {
             "document": "Dinner Ideas - Sides_1.pdf",
             "page_number": 3,
-            "refined_text": "o Breadsticks  Instructions: o Arrange meats, cheeses, olives, and vegetables on a platter."
+            "refined_text": "o  Serve with breadsticks."
         },
         {
-            "document": "Dinner Ideas - Mains_2.pdf",
-            "page_number": 8,
-            "refined_text": " Shredded lettuce, diced tomatoes, shredded cheese, sour cream, and salsa for toppings Instructions:  In a large skillet, heat vegetable oil over medium heat"
+            "document": "Dinner Ideas - Mains_1.pdf",
+            "page_number": 5,
+            "refined_text": " Layer with 3 lasagna noodles, 1/3 of the ricotta mixture, 1/3 of the meat sauce, and 1/3 of the shredded mozzarella cheese"
         },
         {
-            "document": "Dinner Ideas - Mains_2.pdf",
+            "document": "Dinner Ideas - Mains_1.pdf",
+            "page_number": 5,
+            "refined_text": " In a skillet, cook ground beef, diced onion, and minced garlic until browned"
+        },
+        {
+            "document": "Dinner Ideas - Mains_1.pdf",
+            "page_number": 5,
+            "refined_text": " In a bowl, mix ricotta cheese, egg, grated Parmesan cheese, basil, and oregano"
+        },
+        {
+            "document": "Dinner Ideas - Sides_2.pdf",
+            "page_number": 14,
+            "refined_text": "o  Mix vegetables with olives and crumbled feta cheese"
+        },
+        {
+            "document": "Dinner Ideas - Sides_2.pdf",
+            "page_number": 14,
+            "refined_text": "o  Dice tomatoes and cucumber, slice red onion"
+        },
+        {
+            "document": "Dinner Ideas - Sides_2.pdf",
+            "page_number": 14,
+            "refined_text": "o  Whisk olive oil, vinegar, oregano, and salt, then pour over salad"
+        },
+        {
+            "document": "Dinner Ideas - Mains_3.pdf",
             "page_number": 8,
-            "refined_text": " Cook sliced chicken, bell pepper, and onion until chicken is cooked through and"
+            "refined_text": " 9 lasagna noodles, cooked  1 small onion, diced  2 cloves garlic, minced  1 zucchini, sliced  1 bell pepper, diced  1 cup spinach, chopped  1 jar (24 ounces) marinara sauce  1 can (15 ounces) ricotta cheese  1 egg  1 cup shredded mozzarella cheese  1/4 cup grated Parmesan cheese  2 tablespoons olive oil "
         },
         {
             "document": "Dinner Ideas - Sides_3.pdf",
-            "page_number": 5,
-            "refined_text": " Instructions: o Mix ground beef, ground pork, diced onion, minced garlic, breadcrumbs, beaten egg, oregano, mint, salt, and pepper in a bowl."
+            "page_number": 4,
+            "refined_text": "Käsespätzle (Cheese Noodles) "
+        },
+        {
+            "document": "Dinner Ideas - Sides_3.pdf",
+            "page_number": 4,
+            "refined_text": "o  Dice tomatoes, onion, and cucumber"
+        },
+        {
+            "document": "Dinner Ideas - Sides_3.pdf",
+            "page_number": 4,
+            "refined_text": "o  Mix vegetables with chopped cilantro, lemon juice, and salt"
         }
     ]
 }
