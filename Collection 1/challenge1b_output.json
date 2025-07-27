@@ -11,11 +11,7 @@
         ],
         "persona": "Travel Planner",
         "job_to_be_done": "Plan a trip of 4 days for a group of 10 college friends.",
-<<<<<<< HEAD
-        "processing_timestamp": "2025-07-27T16:25:55.346598"
-=======
-        "processing_timestamp": "2025-07-27T16:04:13.932531"
->>>>>>> 50e3eb6492e5472893bff8e918ece89558c8725a
+        "processing_timestamp": "2025-07-27T16:48:12.581932"
     },
     "extracted_sections": [
         {

@@ -12,6 +12,9 @@ def flatten_json(obj, parent_key=''):
     if isinstance(obj, dict):
         for k, v in obj.items():
             new_key = f"{parent_key}.{k}" if parent_key else k
+            # Skip any metadata keys
+            if 'metadata' in new_key.split('.'):
+                continue
             items.extend(flatten_json(v, new_key))
     elif isinstance(obj, list):
         for i, v in enumerate(obj):
@@ -20,6 +23,7 @@ def flatten_json(obj, parent_key=''):
     else:
         items.append(f"{parent_key}: {obj}")
     return items
+
 
 def get_similarity_score(json1, json2):
     flat1 = " ".join(flatten_json(json1))
