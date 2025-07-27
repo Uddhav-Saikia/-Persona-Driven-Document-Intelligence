@@ -9,19 +9,55 @@ from nltk.corpus import stopwords
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 from collections import defaultdict
-from utils.extractor import extract_sections
 
-# ---------------- INITIAL SETUP ----------------
+
 warnings.filterwarnings("ignore", category=FutureWarning)
 
 nltk.download('punkt')
-nltk.download('punkt_tab')  # required for newer NLTK
+nltk.download('punkt_tab')  
 nltk.download('stopwords')
 
 MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 model = SentenceTransformer(MODEL_NAME)
 
-# ---------------- NLP HELPERS ----------------
+
+def extract_sections(pdf_file):
+    sections = []
+    doc = fitz.open(pdf_file)
+
+    for page_num, page in enumerate(doc, start=1):
+        text = page.get_text()
+        current_section = None
+
+        for block in text.split("\n"):
+            block = block.strip()
+            if not block:
+                continue
+
+            if (
+                not block.startswith("•") and
+                (re.match(r"^[A-Z][A-Za-z0-9\s\-\&]{3,}$", block) or (3 <= len(block.split()) <= 8))
+            ):
+                current_section = {
+                    "document": os.path.basename(pdf_file),
+                    "page_number": page_num,
+                    "section_title": block,
+                    "content": ""
+                }
+                sections.append(current_section)
+            elif current_section:
+                current_section["content"] += " " + block
+
+    for s in sections:
+        if s["section_title"].strip() == "•" or len(s["section_title"].strip()) <= 2:
+            first_sentence = s["content"].strip().split(".")[0]
+            if first_sentence:
+                s["section_title"] = first_sentence[:80]  
+            else:
+                s["section_title"] = "Untitled Section"
+
+    return sections
+
 def extract_keywords(text):
     words = nltk.word_tokenize(text.lower())
     return [w for w in words if w.isalpha() and w not in stopwords.words('english')]
@@ -32,7 +68,6 @@ def keyword_score(text, keywords):
 def semantic_score(text, job_embedding):
     return cosine_similarity(model.encode([text]), job_embedding)[0][0]
 
-# ---------------- RANKING ----------------
 def rank_sections(sections, job_text, persona_text):
     job_keywords = extract_keywords(job_text + " " + persona_text)
     job_embedding = model.encode([job_text])
@@ -40,9 +75,10 @@ def rank_sections(sections, job_text, persona_text):
     for s in sections:
         ks = keyword_score(s["content"], job_keywords)
         ss = semantic_score(s["content"], job_embedding)
-        s["score"] = 0.8 * ss + 0.2 * ks  # semantic > keywords
+        s["score"] = 0.8 * ss + 0.2 * ks  
 
-        # Domain boost: prefer travel-relevant documents
+        if s["section_title"].strip() in ["•", "Untitled Section"]:
+            s["score"] -= 0.2
         if any(word in s["document"].lower() for word in ["cities", "things", "restaurants", "cuisine"]):
             s["score"] += 0.1
 
@@ -83,7 +119,6 @@ def extract_subsections(top_sections, job_text, top_n=3):
             })
     return sub_analysis
 
-# ---------------- MAIN PROCESS ----------------
 def process_collection(collection_path):
     input_path = os.path.join(collection_path, "challenge1b_input.json")
     output_path = os.path.join(collection_path, "challenge1b_output.json")
@@ -97,7 +132,6 @@ def process_collection(collection_path):
     pdf_dir = os.path.join(collection_path, "pdfs")
     pdf_files = [os.path.join(pdf_dir, doc["filename"]) for doc in config["documents"]]
 
-    # Extract & rank
     all_sections = []
     for pdf in pdf_files:
         all_sections.extend(extract_sections(pdf))
@@ -130,6 +164,18 @@ def process_collection(collection_path):
 
     print(f"✅ Output saved to {output_path}")
 
-# ---------------- RUN ----------------
 if __name__ == "__main__":
-    process_collection("Collection 1")
+    base_dir = os.getcwd()
+    for folder in os.listdir(base_dir):
+        if folder.lower().startswith("collection"):
+            collection_path = os.path.join(base_dir, folder)
+            input_file = os.path.join(collection_path, "challenge1b_input.json")
+            if os.path.exists(input_file):
+                print(f"🚀 Processing {folder} ...")
+                process_collection(collection_path)
+            else:
+                print(f"⚠️ Skipping {folder} (no challenge1b_input.json found)")
+    print("\n✅ All collections processed!")
+
+
+
