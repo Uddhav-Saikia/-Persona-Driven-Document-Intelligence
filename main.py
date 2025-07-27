@@ -21,8 +21,6 @@ MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 model = SentenceTransformer(MODEL_NAME)
 
 
-
-
 def extract_keywords(text):
     words = nltk.word_tokenize(text.lower())
     return [w for w in words if w.isalpha() and w not in stopwords.words('english')]
