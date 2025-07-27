@@ -1,0 +1,113 @@
+{
+    "metadata": {
+        "input_documents": [
+            "Learn Acrobat - Create and Convert_1.pdf",
+            "Learn Acrobat - Create and Convert_2.pdf",
+            "Learn Acrobat - Edit_1.pdf",
+            "Learn Acrobat - Edit_2.pdf",
+            "Learn Acrobat - Export_1.pdf",
+            "Learn Acrobat - Export_2.pdf",
+            "Learn Acrobat - Fill and Sign.pdf",
+            "Learn Acrobat - Generative AI_1.pdf",
+            "Learn Acrobat - Generative AI_2.pdf",
+            "Learn Acrobat - Request e-signatures_1.pdf",
+            "Learn Acrobat - Request e-signatures_2.pdf",
+            "Learn Acrobat - Share_1.pdf",
+            "Learn Acrobat - Share_2.pdf",
+            "Test Your Acrobat Exporting Skills.pdf",
+            "The Ultimate PDF Sharing Checklist.pdf"
+        ],
+        "persona": "HR professional",
+        "job_to_be_done": "Create and manage fillable forms for onboarding and compliance.",
+        "processing_timestamp": "2025-07-27T16:04:34.149401"
+    },
+    "extracted_sections": [
+        {
+            "document": "Learn Acrobat - Fill and Sign.pdf",
+            "section_title": "Types of PDF forms",
+            "importance_rank": 1,
+            "page_number": 2
+        },
+        {
+            "document": "Learn Acrobat - Request e-signatures_1.pdf",
+            "section_title": "Set privileges and permissions for others",
+            "importance_rank": 3,
+            "page_number": 21
+        },
+        {
+            "document": "Learn Acrobat - Create and Convert_1.pdf",
+            "section_title": "Creates the PDF so that it conforms to the selected ISO standard for long-term preservation of",
+            "importance_rank": 6,
+            "page_number": 21
+        },
+        {
+            "document": "Learn Acrobat - Request e-signatures_2.pdf",
+            "section_title": "Acrobat and Acrobat Reader support XML data signatures that are used to sign data in XML",
+            "importance_rank": 7,
+            "page_number": 10
+        },
+        {
+            "document": "Learn Acrobat - Generative AI_2.pdf",
+            "section_title": "License deployment",
+            "importance_rank": 8,
+            "page_number": 18
+        }
+    ],
+    "subsection_analysis": [
+        {
+            "document": "Learn Acrobat - Fill and Sign.pdf",
+            "page_number": 2,
+            "refined_text": "You can complete the forms by entering information and adding your signatures"
+        },
+        {
+            "document": "Learn Acrobat - Fill and Sign.pdf",
+            "page_number": 2,
+            "refined_text": "• Interactive forms: These contain fields that you can select and fill in"
+        },
+        {
+            "document": "Learn Acrobat - Fill and Sign.pdf",
+            "page_number": 2,
+            "refined_text": "• Flat forms: These do not have interactive fields"
+        },
+        {
+            "document": "Learn Acrobat - Request e-signatures_1.pdf",
+            "page_number": 21,
+            "refined_text": "• Certify a document while leaving portions of it available for form filling, signatures, or comments •"
+        },
+        {
+            "document": "Learn Acrobat - Create and Convert_1.pdf",
+            "page_number": 21,
+            "refined_text": "electronic documents."
+        },
+        {
+            "document": "Learn Acrobat - Request e-signatures_2.pdf",
+            "page_number": 10,
+            "refined_text": "Forms Architectures (XFA) forms"
+        },
+        {
+            "document": "Learn Acrobat - Request e-signatures_2.pdf",
+            "page_number": 10,
+            "refined_text": "The form author provides XML signing, validating, or clearing instructions for form events, such as button click, file save, or submit"
+        },
+        {
+            "document": "Learn Acrobat - Request e-signatures_2.pdf",
+            "page_number": 10,
+            "refined_text": "Like PDF digital signatures, XML digital signatures ensure integrity, authentication, and non-repudiation in documents"
+        },
+        {
+            "document": "Learn Acrobat - Generative AI_2.pdf",
+            "page_number": 18,
+            "refined_text": "You can manage the deployment of Acrobat AI Assistant through the Adobe Admin Console"
+        },
+        {
+            "document": "Learn Acrobat - Generative AI_2.pdf",
+            "page_number": 18,
+            "refined_text": "You can choose to either select the users to assign or create product profiles and assign users to the profiles"
+        },
+        {
+            "document": "Learn Acrobat - Generative AI_2.pdf",
+            "page_number": 18,
+            "refined_text": "As an admin, you must add users to the Admin Console using one of the methods described in Adobe Admin Console users"
+        }
+    ]
+}
