@@ -1,0 +1,112 @@
+{
+    "metadata": {
+        "input_documents": [
+            "Breakfast Ideas.pdf",
+            "Dinner Ideas - Mains_1.pdf",
+            "Dinner Ideas - Mains_2.pdf",
+            "Dinner Ideas - Mains_3.pdf",
+            "Dinner Ideas - Sides_1.pdf",
+            "Dinner Ideas - Sides_2.pdf",
+            "Dinner Ideas - Sides_3.pdf",
+            "Dinner Ideas - Sides_4.pdf",
+            "Lunch Ideas.pdf"
+        ],
+        "persona": "Food Contractor",
+        "job_to_be_done": "Prepare a vegetarian buffet-style dinner menu for a corporate gathering, including gluten-free items.",
+        "processing_timestamp": "2025-07-27T19:28:07.370567"
+    },
+    "extracted_sections": [
+        {
+            "document": "Dinner Ideas - Sides_1.pdf",
+            "section_title": "Instructions :",
+            "importance_rank": 1,
+            "page_number": 3
+        },
+        {
+            "document": "Dinner Ideas - Mains_1.pdf",
+            "section_title": "Instructions:",
+            "importance_rank": 4,
+            "page_number": 5
+        },
+        {
+            "document": "Dinner Ideas - Sides_2.pdf",
+            "section_title": "Instructions :",
+            "importance_rank": 5,
+            "page_number": 14
+        },
+        {
+            "document": "Dinner Ideas - Mains_3.pdf",
+            "section_title": "Ingredients:",
+            "importance_rank": 8,
+            "page_number": 8
+        },
+        {
+            "document": "Dinner Ideas - Sides_3.pdf",
+            "section_title": "Instructions :",
+            "importance_rank": 10,
+            "page_number": 4
+        }
+    ],
+    "subsection_analysis": [
+        {
+            "document": "Dinner Ideas - Sides_1.pdf",
+            "page_number": 3,
+            "refined_text": "o  Arrange meats, cheeses, olives, and vegetables on a platter"
+        },
+        {
+            "document": "Dinner Ideas - Sides_1.pdf",
+            "page_number": 3,
+            "refined_text": "o  Serve with breadsticks."
+        },
+        {
+            "document": "Dinner Ideas - Mains_1.pdf",
+            "page_number": 5,
+            "refined_text": " Layer with 3 lasagna noodles, 1/3 of the ricotta mixture, 1/3 of the meat sauce, and 1/3 of the shredded mozzarella cheese"
+        },
+        {
+            "document": "Dinner Ideas - Mains_1.pdf",
+            "page_number": 5,
+            "refined_text": " In a skillet, cook ground beef, diced onion, and minced garlic until browned"
+        },
+        {
+            "document": "Dinner Ideas - Mains_1.pdf",
+            "page_number": 5,
+            "refined_text": " In a bowl, mix ricotta cheese, egg, grated Parmesan cheese, basil, and oregano"
+        },
+        {
+            "document": "Dinner Ideas - Sides_2.pdf",
+            "page_number": 14,
+            "refined_text": "o  Mix vegetables with olives and crumbled feta cheese"
+        },
+        {
+            "document": "Dinner Ideas - Sides_2.pdf",
+            "page_number": 14,
+            "refined_text": "o  Dice tomatoes and cucumber, slice red onion"
+        },
+        {
+            "document": "Dinner Ideas - Sides_2.pdf",
+            "page_number": 14,
+            "refined_text": "o  Whisk olive oil, vinegar, oregano, and salt, then pour over salad"
+        },
+        {
+            "document": "Dinner Ideas - Mains_3.pdf",
+            "page_number": 8,
+            "refined_text": " 9 lasagna noodles, cooked  1 small onion, diced  2 cloves garlic, minced  1 zucchini, sliced  1 bell pepper, diced  1 cup spinach, chopped  1 jar (24 ounces) marinara sauce  1 can (15 ounces) ricotta cheese  1 egg  1 cup shredded mozzarella cheese  1/4 cup grated Parmesan cheese  2 tablespoons olive oil "
+        },
+        {
+            "document": "Dinner Ideas - Sides_3.pdf",
+            "page_number": 4,
+            "refined_text": "Käsespätzle (Cheese Noodles) "
+        },
+        {
+            "document": "Dinner Ideas - Sides_3.pdf",
+            "page_number": 4,
+            "refined_text": "o  Dice tomatoes, onion, and cucumber"
+        },
+        {
+            "document": "Dinner Ideas - Sides_3.pdf",
+            "page_number": 4,
+            "refined_text": "o  Mix vegetables with chopped cilantro, lemon juice, and salt"
+        }
+    ]
+}
