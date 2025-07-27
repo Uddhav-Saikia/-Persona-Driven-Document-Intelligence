@@ -1,0 +1,87 @@
+{
+    "metadata": {
+        "input_documents": [
+            "Breakfast Ideas.pdf",
+            "Dinner Ideas - Mains_1.pdf",
+            "Dinner Ideas - Mains_2.pdf",
+            "Dinner Ideas - Mains_3.pdf",
+            "Dinner Ideas - Sides_1.pdf",
+            "Dinner Ideas - Sides_2.pdf",
+            "Dinner Ideas - Sides_3.pdf",
+            "Dinner Ideas - Sides_4.pdf",
+            "Lunch Ideas.pdf"
+        ],
+        "persona": "Food Contractor",
+        "job_to_be_done": "Prepare a vegetarian buffet-style dinner menu for a corporate gathering, including gluten-free items.",
+        "processing_timestamp": "2025-07-27T16:54:55.671808"
+    },
+    "extracted_sections": [
+        {
+            "document": "Dinner Ideas - Sides_2.pdf",
+            "section_title": "o Oil for frying",
+            "importance_rank": 1,
+            "page_number": 5
+        },
+        {
+            "document": "Dinner Ideas - Mains_1.pdf",
+            "section_title": "Preheat oven to 350°F (175°C).",
+            "importance_rank": 2,
+            "page_number": 14
+        },
+        {
+            "document": "Dinner Ideas - Sides_1.pdf",
+            "section_title": "o Marinated vegetables (artichokes, peppers)",
+            "importance_rank": 3,
+            "page_number": 3
+        },
+        {
+            "document": "Dinner Ideas - Mains_2.pdf",
+            "section_title": "Tortillas for serving",
+            "importance_rank": 5,
+            "page_number": 8
+        },
+        {
+            "document": "Dinner Ideas - Sides_3.pdf",
+            "section_title": "o Oil for frying",
+            "importance_rank": 7,
+            "page_number": 5
+        }
+    ],
+    "subsection_analysis": [
+        {
+            "document": "Dinner Ideas - Sides_2.pdf",
+            "page_number": 5,
+            "refined_text": " Instructions: o Mix ground pork, cabbage, green onions, minced garlic, soy sauce, and sesame"
+        },
+        {
+            "document": "Dinner Ideas - Mains_1.pdf",
+            "page_number": 14,
+            "refined_text": " In a large bowl, mix ground beef, ground pork, diced onion, minced garlic, breadcrumbs, milk, beaten egg, ketchup, Worcestershire sauce, salt, and pepper"
+        },
+        {
+            "document": "Dinner Ideas - Mains_1.pdf",
+            "page_number": 14,
+            "refined_text": " Shape the mixture into a loaf and place in a baking dish"
+        },
+        {
+            "document": "Dinner Ideas - Sides_1.pdf",
+            "page_number": 3,
+            "refined_text": "o Breadsticks  Instructions: o Arrange meats, cheeses, olives, and vegetables on a platter."
+        },
+        {
+            "document": "Dinner Ideas - Mains_2.pdf",
+            "page_number": 8,
+            "refined_text": " Shredded lettuce, diced tomatoes, shredded cheese, sour cream, and salsa for toppings Instructions:  In a large skillet, heat vegetable oil over medium heat"
+        },
+        {
+            "document": "Dinner Ideas - Mains_2.pdf",
+            "page_number": 8,
+            "refined_text": " Cook sliced chicken, bell pepper, and onion until chicken is cooked through and"
+        },
+        {
+            "document": "Dinner Ideas - Sides_3.pdf",
+            "page_number": 5,
+            "refined_text": " Instructions: o Mix ground beef, ground pork, diced onion, minced garlic, breadcrumbs, beaten egg, oregano, mint, salt, and pepper in a bowl."
+        }
+    ]
+}
