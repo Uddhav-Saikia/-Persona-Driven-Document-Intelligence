@@ -158,3 +158,6 @@ if __name__ == "__main__":
             else:
                 print(f"⚠️ Skipping {folder} (no challenge1b_input.json found)")
     print("\n✅ All collections processed!")
+
+
+

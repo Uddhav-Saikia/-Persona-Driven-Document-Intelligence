@@ -15,10 +15,16 @@
     },
     "extracted_sections": [
         {
-            "document": "South of France - Cities.pdf",
-            "section_title": "Student Life",
+            "document": "South of France - Things to Do.pdf",
+            "section_title": "Nice: Take a class to master Niçoise cuisine, including dishes like salade niçoi",
             "importance_rank": 1,
-            "page_number": 10
+            "page_number": 5
+        },
+        {
+            "document": "South of France - Cuisine.pdf",
+            "section_title": "Salade Niçoise: A refreshing salad with tuna, hard-boiled eggs, tomatoes, green ",
+            "importance_rank": 3,
+            "page_number": 3
         },
         {
             "document": "South of France - Tips and Tricks.pdf",
