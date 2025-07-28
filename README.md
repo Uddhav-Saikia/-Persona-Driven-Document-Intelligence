@@ -1,4 +1,4 @@
-# 📄 PDF Section Extractor
+# 📄 PDF Section Extractor based on Persona
 
 This project processes PDF documents for section extraction and semantic summarization based on a given persona and task (job to be done). The system uses a combination of structural heuristics, semantic similarity (Sentence-BERT), and keyword relevance (TF-IDF) to extract meaningful content sections from documents.
 
@@ -44,9 +44,29 @@ This project processes PDF documents for section extraction and semantic summari
 
 ---
 
+# Folder Structure
+
+```
+Challenge_1b/
+├── Collection 1/                    # Travel Planning
+│   ├── PDFs/                       # South of France guides
+│   ├── challenge1b_input.json      # Input configuration
+│   └── challenge1b_output.json     # Analysis results
+├── Collection 2/                   # Adobe Acrobat Learning
+│   ├── PDFs/                       # Acrobat tutorials
+│   ├── challenge1b_input.json      # Input configuration
+│   └── challenge1b_output.json     # Analysis results
+├── Collection 3/                   # Recipe Collection
+│   ├── PDFs/                       # Cooking guides
+│   ├── challenge1b_input.json      # Input configuration
+│   └── challenge1b_output.json     # Analysis results
+└── README.md
+```
+
 ## ⚙️ Expected Execution (Docker)
 
-Your container is expected to automatically process all PDFs from `/app/input`, producing a `.json` output for each `.pdf` in `/app/output`.
+The container automatically processes all folders that are named as "collection x", where x is any number. <br>
+The folders are to be put in root dir
 
 ### 🛠️ Build the Docker image:
 ```bash
@@ -58,11 +78,11 @@ docker run --rm persona-pdf
 ```
 
 ### 📂 Input / Output Expectations
-🔸 Input: /app/input/
-```Accepts one or more .pdf files.```
+```Accepts pdfs in the folder structure```
 
-🔹 Output: /app/output/
-```For each filename.pdf, a corresponding filename.json is created.```
+```For each filename.pdf, a corresponding json is created within the collection```
+
+
 
 ✅ Output JSON structure:
 ```json
