@@ -78,7 +78,7 @@ docker run --rm persona-pdf
 ```
 
 ### 📂 Input / Output Expectations
-```Accepts pdfs in the folder structure```
+```Accepts pdfs in the given folder structure```
 
 ```For each filename.pdf, a corresponding json is created within the collection```
 
@@ -111,5 +111,4 @@ docker run --rm persona-pdf
 }
 ```
 
-📄 License
-This project is released under the MIT License.
+
