@@ -50,7 +50,7 @@ Your container is expected to automatically process all PDFs from `/app/input`, 
 
 ### 🛠️ Build the Docker image:
 ```bash
-docker build --platform linux/amd64 -t mysolutionname:somerandomidentifier .
+docker build --platform linux/amd64 -t persona-pdf .
 ```
 🚀 Run the Docker container:
 ```bash
@@ -58,7 +58,7 @@ docker run --rm \
   -v $(pwd)/input:/app/input \
   -v $(pwd)/output:/app/output \
   --network none \
-  mysolutionname:somerandomidentifier
+  persona-pdf
 ```
 
 ### 📂 Input / Output Expectations
