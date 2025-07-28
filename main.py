@@ -9,46 +9,61 @@ from nltk.corpus import stopwords
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 from collections import defaultdict
+from sklearn.feature_extraction.text import TfidfVectorizer
 from utils.extractor import extract_sections
 
 warnings.filterwarnings("ignore", category=FutureWarning)
 
 nltk.download('punkt')
-nltk.download('punkt_tab')  
 nltk.download('stopwords')
 
 MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
-model = SentenceTransformer(MODEL_NAME)
+model = SentenceTransformer(MODEL_NAME, device="cpu")
 
 
 def extract_keywords(text):
     words = nltk.word_tokenize(text.lower())
     return [w for w in words if w.isalpha() and w not in stopwords.words('english')]
 
+
+def extract_keywords_from_titles(titles, top_k=15):
+    titles = [t.strip() for t in titles if len(t.strip()) > 2]
+    if not titles:
+        return set()
+    try:
+        vectorizer = TfidfVectorizer(stop_words='english', ngram_range=(1, 2))
+        tfidf_matrix = vectorizer.fit_transform(titles)
+        scores = zip(vectorizer.get_feature_names_out(), tfidf_matrix.sum(axis=0).tolist()[0])
+        sorted_keywords = sorted(scores, key=lambda x: x[1], reverse=True)
+        return {kw for kw, _ in sorted_keywords[:top_k]}
+    except ValueError:
+        return set()
+
+
 def keyword_score(text, keywords):
-    return sum(1 for k in keywords if k in text.lower()) / max(len(keywords), 1)
+    lowered = text.lower()
+    return sum(1 for k in keywords if k in lowered) / max(len(keywords), 1)
+
 
 def semantic_score(text, job_embedding):
     return cosine_similarity(model.encode([text]), job_embedding)[0][0]
 
+
 def rank_sections(sections, job_text, persona_text):
     job_keywords = extract_keywords(job_text + " " + persona_text)
+    title_keywords = extract_keywords_from_titles([s["section_title"] for s in sections])
     job_embedding = model.encode([job_text])
 
     for s in sections:
-        ks = keyword_score(s["content"], job_keywords)
+        ks = keyword_score(s["content"], set(job_keywords) | title_keywords)
         ss = semantic_score(s["content"], job_embedding)
-        s["score"] = 0.8 * ss + 0.2 * ks  
-
-        if s["section_title"].strip() in ["•", "Untitled Section"]:
-            s["score"] -= 0.2
-        if any(word in s["document"].lower() for word in ["cities", "things", "restaurants", "cuisine"]):
-            s["score"] += 0.1
+        s["score"] = 0.75 * ss + 0.25 * ks
 
     ranked = sorted(sections, key=lambda x: x["score"], reverse=True)
     for i, s in enumerate(ranked, start=1):
         s["importance_rank"] = i
     return ranked
+
 
 def select_diverse_sections(ranked, top_per_doc=1, overall_top=5):
     selected = []
@@ -61,17 +76,19 @@ def select_diverse_sections(ranked, top_per_doc=1, overall_top=5):
             break
     return selected
 
+
 def extract_subsections(top_sections, job_text, top_n=3):
     job_keywords = extract_keywords(job_text)
     job_embedding = model.encode([job_text])
     sub_analysis = []
     for s in top_sections:
-        paragraphs = [p.strip() for p in s["content"].split(". ") if len(p.strip()) > 20]
+        paragraphs = re.split(r"\n+|•|\d\.\s+|(?<=[.?!])\s{2,}", s["content"])
+        clean_paragraphs = [p.strip() for p in paragraphs if len(p.strip()) > 30]
         scored_paras = []
-        for p in paragraphs:
+        for p in clean_paragraphs:
             ks = keyword_score(p, job_keywords)
             ss = semantic_score(p, job_embedding)
-            final = 0.8 * ss + 0.2 * ks
+            final = 0.75 * ss + 0.25 * ks
             scored_paras.append((final, p))
         scored_paras = sorted(scored_paras, key=lambda x: x[0], reverse=True)[:top_n]
         for _, para in scored_paras:
@@ -81,6 +98,7 @@ def extract_subsections(top_sections, job_text, top_n=3):
                 "refined_text": para
             })
     return sub_analysis
+
 
 def process_collection(collection_path):
     input_path = os.path.join(collection_path, "challenge1b_input.json")
@@ -126,6 +144,7 @@ def process_collection(collection_path):
         json.dump(output, f, indent=4, ensure_ascii=False)
 
     print(f"✅ Output saved to {output_path}")
+
 
 if __name__ == "__main__":
     base_dir = os.getcwd()
