@@ -1,4 +1,11 @@
 import os
+import sys
+
+# Insert app and vendor early in sys.path
+sys.path.append(os.path.join(os.path.dirname(__file__), "app"))
+vendor_path = os.path.join(os.path.dirname(__file__), "app", "vendor")
+sys.path.insert(0, vendor_path)
+
 import json
 import fitz
 import re
@@ -8,17 +15,15 @@ from datetime import datetime
 from nltk.corpus import stopwords
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
-from collections import defaultdict
 from sklearn.feature_extraction.text import TfidfVectorizer
+from collections import defaultdict
 from utils.extractor import extract_sections
 
 warnings.filterwarnings("ignore", category=FutureWarning)
+os.environ["NLTK_DATA"] = "/nltk_data"
 
-nltk.download('punkt')
-nltk.download('stopwords')
+model = SentenceTransformer("models/all-MiniLM-L6-v2", device="cpu")  # Adjusted path
 
-MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
-model = SentenceTransformer(MODEL_NAME, device="cpu")
 
 
 def extract_keywords(text):
